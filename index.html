@@ -842,10 +842,34 @@
         .zalo-cust-row.zb-selected-row { box-shadow: inset 4px 0 0 #0068ff; background:#eef6ff !important; }
         @media(max-width:600px){ .zb-batch{margin:10px 10px 6px}.zb-controls{padding:10px}.zb-note,.zb-selected,#zbStatus,#zbCountdown{margin-left:10px;margin-right:10px}.zb-pick{flex-basis:38px;min-width:38px}.zb-controls button{flex:1 1 130px} }
 
-    </style>
+    
+/* IDECO application access gate */
+html.ideco-locked body { overflow:hidden !important; }
+#idecoLoginGate {position:fixed;inset:0;z-index:2147483000;background:linear-gradient(145deg,#670d15,#bd2330 60%,#ee784e);display:flex;align-items:center;justify-content:center;padding:20px;color:#202936}
+#idecoLoginGate[hidden]{display:none!important}
+.ideco-login-card{width:min(420px,100%);background:white;padding:32px 28px;border-radius:22px;box-shadow:0 24px 80px #30061270;text-align:center}
+.ideco-login-logo{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 14px;background:#fee9e8;color:#b71c1c;border-radius:18px;font-size:29px}
+.ideco-login-card h2{color:#9b1521;font-size:23px;margin:0 0 7px}.ideco-login-card p{font-size:13px;color:#687587;line-height:1.6;margin-bottom:18px}
+.ideco-input{width:100%;height:46px;border:1.5px solid #d8dce3;border-radius:10px;padding:0 13px;font-size:16px;background:white;outline:none;box-sizing:border-box}
+.ideco-input:focus{border-color:#b71c1c;box-shadow:0 0 0 3px #b71c1c18}
+.ideco-primary{width:100%;background:#b71c1c;color:white;font-size:15px;font-weight:800;padding:13px 16px;border:0;border-radius:10px;cursor:pointer}
+.ideco-primary:disabled{opacity:.55;cursor:wait}.ideco-message{font-size:13px;min-height:20px;margin:12px 0;color:#bf2525;font-weight:600}
+.ideco-security-settings{margin:22px 26px;padding:22px;background:#fff;border-radius:13px;border:1px solid #e4e8ef;box-shadow:0 2px 9px #0000000d}
+.ideco-security-settings h3{color:#9b1521;margin:0 0 8px}.ideco-security-settings label{display:block;font-weight:650;font-size:13px;color:#394353;margin:12px 0 5px}
+.ideco-security-settings .ideco-input{max-width:460px}.ideco-security-settings .ideco-primary{width:auto;margin-top:15px;padding:12px 22px}
+#idecoLogoutBtn{background:#fff;color:#9b1521;border:1px solid #e2b3b9;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;margin-left:8px}
+</style>
 </head>
 <body>
-
+<div id="idecoLoginGate" role="dialog" aria-modal="true" aria-label="Đăng nhập IDECO">
+ <form class="ideco-login-card" id="idecoLoginForm">
+  <div class="ideco-login-logo"><i class="fas fa-lock"></i></div>
+  <h2>IDECO PHARMA</h2><p>HỆ THỐNG BÁO GIÁ &amp; POSTER<br>Vui lòng đăng nhập để sử dụng ứng dụng.</p>
+  <input class="ideco-input" type="password" id="idecoLoginPassword" placeholder="Nhập mật khẩu đăng nhập" autocomplete="current-password" required>
+  <div id="idecoLoginMessage" class="ideco-message" aria-live="polite">Đang kiểm tra cấu hình đăng nhập...</div>
+  <button class="ideco-primary" id="idecoLoginSubmit" type="submit" disabled><i class="fas fa-sign-in-alt"></i> ĐĂNG NHẬP</button>
+ </form>
+</div>
 <header class="header">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <div style="font-size: 1.5rem; font-weight: 800;">AI-AGENT TẠO POSTER BÁO GIÁ-WEBSITE THUỐC- GỞI KHÁCH HÀNG PHÁT TRIỂN BỞI:MTRIET </div>
@@ -1208,6 +1232,18 @@
                 </div>
             </div>
 
+            <section class="ideco-security-settings" id="idecoPasswordSettings">
+                <h3><i class="fas fa-shield-alt"></i> CÀI ĐẶT · ĐỔI MẬT KHẨU ĐĂNG NHẬP</h3>
+                <p style="font-size:13px;color:#687587;line-height:1.6">Đổi mật khẩu chung để sử dụng trên các thiết bị. Sau khi lưu thành công, các máy khác sẽ cần đăng nhập lại.</p>
+                <form id="idecoChangePasswordForm" autocomplete="off">
+                    <label for="idecoOldPassword">Mật khẩu hiện tại</label><input class="ideco-input" id="idecoOldPassword" type="password" autocomplete="current-password" required>
+                    <label for="idecoNewPassword">Nhập mật khẩu mới</label><input class="ideco-input" id="idecoNewPassword" type="password" autocomplete="new-password" minlength="8" required>
+                    <label for="idecoConfirmPassword">Xác nhận mật khẩu mới</label><input class="ideco-input" id="idecoConfirmPassword" type="password" autocomplete="new-password" minlength="8" required>
+                    <div id="idecoChangeMessage" style="font-size:13px;margin-top:12px" aria-live="polite"></div>
+                    <button type="submit" class="ideco-primary" id="idecoChangeSubmit"><i class="fas fa-save"></i> LƯU MẬT KHẨU MỚI</button>
+                    <button type="button" id="idecoLogoutBtn">Đăng xuất</button>
+                </form>
+            </section>
             <div class="admin-footer">
                 <p>Phiên bản tích hợp mới: BẢNG GIÁ + TAOPOSTER + Quản trị ảnh trực tiếp không password</p>
             </div>
@@ -3911,6 +3947,79 @@ share.addEventListener('close',()=>{job++;readyFile=null;if(previewURL){URL.revo
 const qb=document.createElement('button');qb.className='ideco-btn primary';qb.textContent='Chia sẻ ảnh bảng giá qua Zalo';qb.onclick=()=>window.IDECOShare.open(async()=>{const canvas=await renderQuoteCanvas();return canvas.toDataURL('image/png');});document.querySelector('#quotation .actions').prepend(qb);
 })();
 
+</script>
+
+<script>
+/* IDECO shared password: SHA-256, Firebase RTDB synchronization; client-side gate is NOT server authentication. */
+(function () {
+ 'use strict';
+ const DEFAULT_HASH = '0631050747ce0ada9637ce2d98190c2b5f336c75cb0ea5d14b4a595a4f84606b';
+ const LOCAL_KEY = 'ideco_mobile_access_hash_v1';
+ const SESSION_KEY = 'ideco_mobile_access_session_v1';
+ const CONFIG_PATH = 'idecoAppConfig/mobileQuotation/loginHash';
+ const gate=document.getElementById('idecoLoginGate');
+ const pwd=document.getElementById('idecoLoginPassword');
+ const msg=document.getElementById('idecoLoginMessage');
+ const submit=document.getElementById('idecoLoginSubmit');
+ const form=document.getElementById('idecoLoginForm');
+ const changeForm=document.getElementById('idecoChangePasswordForm');
+ const changeMsg=document.getElementById('idecoChangeMessage');
+ const changeSubmit=document.getElementById('idecoChangeSubmit');
+ let hash=DEFAULT_HASH, ready=false, online=false, signedIn=false, ref=null;
+ document.documentElement.classList.add('ideco-locked');
+ const validHash=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
+ const digest=async x=>{const a=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(x));return [...new Uint8Array(a)].map(n=>n.toString(16).padStart(2,'0')).join('');};
+ function message(el,t,ok=false){el.textContent=t;el.style.color=ok?'#16804c':'#b71c1c';}
+ function lock(t){signedIn=false;sessionStorage.removeItem(SESSION_KEY);gate.hidden=false;document.documentElement.classList.add('ideco-locked');pwd.value='';if(t)message(msg,t);if(ready)submit.disabled=false;}
+ function enter(){signedIn=true;sessionStorage.setItem(SESSION_KEY,hash);gate.hidden=true;document.documentElement.classList.remove('ideco-locked');pwd.value='';}
+ function setHash(h){if(!validHash(h))return;const changed=hash!==h;hash=h;localStorage.setItem(LOCAL_KEY,h);ready=true;submit.disabled=false;if(changed&&signedIn){lock('Mật khẩu đã được thay đổi. Vui lòng đăng nhập lại.');}else if(!signedIn){message(msg,online?'Sẵn sàng đăng nhập.':'Chế độ dự phòng: chưa kết nối được Firebase.',online);}}
+ async function start(){
+  const cached=localStorage.getItem(LOCAL_KEY);if(validHash(cached))hash=cached;
+  try{
+   if(!window.crypto?.subtle)throw new Error('Trình duyệt không hỗ trợ xác minh mật khẩu an toàn (cần HTTPS).');
+   if(!window.firebase?.database)throw new Error('Firebase chưa sẵn sàng');
+   ref=firebase.database().ref(CONFIG_PATH);
+   const snap=await ref.once('value');
+   let h=snap.val();
+   if(!validHash(h)){
+     const result=await ref.transaction(v=>validHash(v)?undefined:DEFAULT_HASH,undefined,false);
+     h=result.snapshot.val();
+   }
+   if(!validHash(h))throw new Error('Cấu hình mật khẩu không hợp lệ');
+   online=true;setHash(h);
+   ref.on('value',snapshot=>{const v=snapshot.val();if(validHash(v))setHash(v);},e=>{online=false;message(msg,'Mất đồng bộ Firebase. Kiểm tra kết nối hoặc quyền Database.');console.warn('IDECO password sync:',e);});
+  }catch(e){console.warn('IDECO login fallback:',e);online=false;setHash(hash);message(msg,'Chế độ dự phòng trên thiết bị này: Firebase chưa đồng bộ được.');}
+  // Each new visit requires a login. Refresh within the tab keeps the session if desired.
+  if(sessionStorage.getItem(SESSION_KEY)===hash)enter();
+ }
+ form.addEventListener('submit',async e=>{e.preventDefault();if(!ready)return;submit.disabled=true;try{if(await digest(pwd.value)===hash){enter();}else{message(msg,'Mật khẩu không đúng. Vui lòng thử lại.');pwd.select();}}catch(err){message(msg,'Không thể xác minh mật khẩu trên trình duyệt này.');}finally{submit.disabled=false;}});
+ changeForm.addEventListener('submit',async e=>{
+  e.preventDefault();if(!signedIn)return;
+  const old=document.getElementById('idecoOldPassword').value;
+  const next=document.getElementById('idecoNewPassword').value;
+  const confirm=document.getElementById('idecoConfirmPassword').value;
+  if(next.length<8){message(changeMsg,'Mật khẩu mới cần ít nhất 8 ký tự.');return;}
+  if(next!==confirm){message(changeMsg,'Xác nhận mật khẩu mới chưa khớp.');return;}
+  changeSubmit.disabled=true;
+  try{
+   const oldHash=await digest(old),nextHash=await digest(next);
+   if(oldHash!==hash){message(changeMsg,'Mật khẩu hiện tại không chính xác.');return;}
+   if(nextHash===hash){message(changeMsg,'Mật khẩu mới phải khác mật khẩu cũ.');return;}
+   if(online&&ref){
+    const tx=await ref.transaction(current=>current===oldHash?nextHash:undefined,undefined,false);
+    if(!tx.committed){message(changeMsg,'Mật khẩu đã được đổi trên thiết bị khác. Vui lòng tải lại.');return;}
+    setHash(nextHash);
+    message(changeMsg,'Đã lưu mật khẩu mới trên Firebase. Các thiết bị khác sẽ yêu cầu đăng nhập lại.',true);
+   }else{
+    message(changeMsg,'Không thể lưu mật khẩu chung vì Firebase chưa kết nối. Vui lòng kết nối mạng rồi thử lại.');return;
+   }
+   changeForm.reset();lock('Mật khẩu đã được đổi. Đăng nhập lại bằng mật khẩu mới.');
+  }catch(err){console.error('IDECO password change:',err);message(changeMsg,'Không lưu được mật khẩu trên Firebase. Kiểm tra quyền ghi Database và kết nối mạng.');}
+  finally{changeSubmit.disabled=false;}
+ });
+ document.getElementById('idecoLogoutBtn').addEventListener('click',()=>lock('Đã đăng xuất. Vui lòng đăng nhập lại.'));
+ start();
+})();
 </script>
 </body>
 </html>
