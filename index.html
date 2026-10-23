@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>IDECO Mobile • Bảng giá & Poster V22</title>
+    <title>IDECO Mobile • Bảng giá & Poster V23</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -842,34 +842,10 @@
         .zalo-cust-row.zb-selected-row { box-shadow: inset 4px 0 0 #0068ff; background:#eef6ff !important; }
         @media(max-width:600px){ .zb-batch{margin:10px 10px 6px}.zb-controls{padding:10px}.zb-note,.zb-selected,#zbStatus,#zbCountdown{margin-left:10px;margin-right:10px}.zb-pick{flex-basis:38px;min-width:38px}.zb-controls button{flex:1 1 130px} }
 
-    
-/* IDECO application access gate */
-html.ideco-locked body { overflow:hidden !important; }
-#idecoLoginGate {position:fixed;inset:0;z-index:2147483000;background:linear-gradient(145deg,#670d15,#bd2330 60%,#ee784e);display:flex;align-items:center;justify-content:center;padding:20px;color:#202936}
-#idecoLoginGate[hidden]{display:none!important}
-.ideco-login-card{width:min(420px,100%);background:white;padding:32px 28px;border-radius:22px;box-shadow:0 24px 80px #30061270;text-align:center}
-.ideco-login-logo{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 14px;background:#fee9e8;color:#b71c1c;border-radius:18px;font-size:29px}
-.ideco-login-card h2{color:#9b1521;font-size:23px;margin:0 0 7px}.ideco-login-card p{font-size:13px;color:#687587;line-height:1.6;margin-bottom:18px}
-.ideco-input{width:100%;height:46px;border:1.5px solid #d8dce3;border-radius:10px;padding:0 13px;font-size:16px;background:white;outline:none;box-sizing:border-box}
-.ideco-input:focus{border-color:#b71c1c;box-shadow:0 0 0 3px #b71c1c18}
-.ideco-primary{width:100%;background:#b71c1c;color:white;font-size:15px;font-weight:800;padding:13px 16px;border:0;border-radius:10px;cursor:pointer}
-.ideco-primary:disabled{opacity:.55;cursor:wait}.ideco-message{font-size:13px;min-height:20px;margin:12px 0;color:#bf2525;font-weight:600}
-.ideco-security-settings{margin:22px 26px;padding:22px;background:#fff;border-radius:13px;border:1px solid #e4e8ef;box-shadow:0 2px 9px #0000000d}
-.ideco-security-settings h3{color:#9b1521;margin:0 0 8px}.ideco-security-settings label{display:block;font-weight:650;font-size:13px;color:#394353;margin:12px 0 5px}
-.ideco-security-settings .ideco-input{max-width:460px}.ideco-security-settings .ideco-primary{width:auto;margin-top:15px;padding:12px 22px}
-#idecoLogoutBtn{background:#fff;color:#9b1521;border:1px solid #e2b3b9;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;margin-left:8px}
-</style>
+    </style>
 </head>
 <body>
-<div id="idecoLoginGate" role="dialog" aria-modal="true" aria-label="Đăng nhập IDECO">
- <form class="ideco-login-card" id="idecoLoginForm">
-  <div class="ideco-login-logo"><i class="fas fa-lock"></i></div>
-  <h2>IDECO PHARMA</h2><p>HỆ THỐNG BÁO GIÁ &amp; POSTER<br>Vui lòng đăng nhập để sử dụng ứng dụng.</p>
-  <input class="ideco-input" type="password" id="idecoLoginPassword" placeholder="Nhập mật khẩu đăng nhập" autocomplete="current-password" required>
-  <div id="idecoLoginMessage" class="ideco-message" aria-live="polite">Đang kiểm tra cấu hình đăng nhập...</div>
-  <button class="ideco-primary" id="idecoLoginSubmit" type="submit" disabled><i class="fas fa-sign-in-alt"></i> ĐĂNG NHẬP</button>
- </form>
-</div>
+
 <header class="header">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <div style="font-size: 1.5rem; font-weight: 800;">AI-AGENT TẠO POSTER BÁO GIÁ-WEBSITE THUỐC- GỞI KHÁCH HÀNG PHÁT TRIỂN BỞI:MTRIET </div>
@@ -978,7 +954,7 @@ html.ideco-locked body { overflow:hidden !important; }
 
                 <!-- Footer -->
                 <div class="info-footer">
-                    <p>VPGD: 262/3 Lũy Bán Bích, P. Tân Phú, TP. HCM | Hotline: 0385400436</p>
+                    <p>VPGD: 262/3 Lũy Bán Bích, P. Tân Phú, TP. HCM | Hotline: <a class="ideco-phone" href="tel:0385400436" style="color:inherit;text-decoration:none;">0385400436</a></p>
                     <p class="website-link">Xem tất cả danh mục thuốc tại: <a href="https://ideco-thuoc.netlify.app/" target="_blank">https://ideco-thuoc.netlify.app/</a></p>
                 </div>
             </div>
@@ -1232,18 +1208,6 @@ html.ideco-locked body { overflow:hidden !important; }
                 </div>
             </div>
 
-            <section class="ideco-security-settings" id="idecoPasswordSettings">
-                <h3><i class="fas fa-shield-alt"></i> CÀI ĐẶT · ĐỔI MẬT KHẨU ĐĂNG NHẬP</h3>
-                <p style="font-size:13px;color:#687587;line-height:1.6">Đổi mật khẩu chung để sử dụng trên các thiết bị. Sau khi lưu thành công, các máy khác sẽ cần đăng nhập lại.</p>
-                <form id="idecoChangePasswordForm" autocomplete="off">
-                    <label for="idecoOldPassword">Mật khẩu hiện tại</label><input class="ideco-input" id="idecoOldPassword" type="password" autocomplete="current-password" required>
-                    <label for="idecoNewPassword">Nhập mật khẩu mới</label><input class="ideco-input" id="idecoNewPassword" type="password" autocomplete="new-password" minlength="8" required>
-                    <label for="idecoConfirmPassword">Xác nhận mật khẩu mới</label><input class="ideco-input" id="idecoConfirmPassword" type="password" autocomplete="new-password" minlength="8" required>
-                    <div id="idecoChangeMessage" style="font-size:13px;margin-top:12px" aria-live="polite"></div>
-                    <button type="submit" class="ideco-primary" id="idecoChangeSubmit"><i class="fas fa-save"></i> LƯU MẬT KHẨU MỚI</button>
-                    <button type="button" id="idecoLogoutBtn">Đăng xuất</button>
-                </form>
-            </section>
             <div class="admin-footer">
                 <p>Phiên bản tích hợp mới: BẢNG GIÁ + TAOPOSTER + Quản trị ảnh trực tiếp không password</p>
             </div>
@@ -2238,13 +2202,22 @@ html.ideco-locked body { overflow:hidden !important; }
                         window.__logWeeklySend(cust || { name: 'KH ' + phone, contact: '', staff: '', id: custId }, phone, zaloQueue.chunks);
                     }
                 } catch (eLog) { console.error('[BCT] Lỗi ghi báo cáo tuần:', eLog); }
-                showToast(chunkToastHtml(), zaloQueue.chunks.length > 1 ? 60000 : 8000);
-                setTimeout(() => openZaloChatPC(phone), 400);
+                if (window.IDECOPhone && window.IDECOPhone.isIOS) {
+                    // iPhone/iPad: Safari chặn window.open sau tác vụ bất đồng bộ → mở bảng thao tác có nút bấm thật
+                    window.IDECOPhone.afterQuoteCopied(phone, zaloQueue.chunks);
+                } else {
+                    showToast(chunkToastHtml(), zaloQueue.chunks.length > 1 ? 60000 : 8000);
+                    setTimeout(() => openZaloChatPC(phone), 400);
+                }
                 renderZaloList();
                 if (typeof renderNewCustList === 'function') renderNewCustList();
             } catch (e) {
                 console.error('[ZALO] Lỗi copy ảnh:', e);
-                showToast('❌ Không copy được ảnh báo giá.<br>' + escapeHtml(e.message || 'Vui lòng thử lại.'), 6000);
+                if (window.IDECOPhone && window.IDECOPhone.isIOS) {
+                    window.IDECOPhone.afterQuoteFailed(phone, buildZaloChunks);
+                } else {
+                    showToast('❌ Không copy được ảnh báo giá.<br>' + escapeHtml(e.message || 'Vui lòng thử lại.'), 6000);
+                }
             } finally {
                 btn.innerHTML = oldHtml;
                 btn.disabled = false;
@@ -3949,77 +3922,286 @@ const qb=document.createElement('button');qb.className='ideco-btn primary';qb.te
 
 </script>
 
+<!-- ===================== IDECO PHONE ACTIONS (iOS) =====================
+     Android có sẵn menu Zalo khi chọn số điện thoại; iPhone thì không.
+     Module này tự dựng menu tương đương: Gửi Zalo · Gọi miễn phí · Kết bạn ·
+     Gọi SIM · Nhắn SMS · Sao chép. Mọi nút là thẻ <a> thật để iOS cho phép
+     mở app Zalo (Universal Link zalo.me) và trình quay số (tel:).
+======================================================================= -->
 <script>
-/* IDECO shared password: SHA-256, Firebase RTDB synchronization; client-side gate is NOT server authentication. */
 (function () {
- 'use strict';
- const DEFAULT_HASH = '0631050747ce0ada9637ce2d98190c2b5f336c75cb0ea5d14b4a595a4f84606b';
- const LOCAL_KEY = 'ideco_mobile_access_hash_v1';
- const SESSION_KEY = 'ideco_mobile_access_session_v1';
- const CONFIG_PATH = 'idecoAppConfig/mobileQuotation/loginHash';
- const gate=document.getElementById('idecoLoginGate');
- const pwd=document.getElementById('idecoLoginPassword');
- const msg=document.getElementById('idecoLoginMessage');
- const submit=document.getElementById('idecoLoginSubmit');
- const form=document.getElementById('idecoLoginForm');
- const changeForm=document.getElementById('idecoChangePasswordForm');
- const changeMsg=document.getElementById('idecoChangeMessage');
- const changeSubmit=document.getElementById('idecoChangeSubmit');
- let hash=DEFAULT_HASH, ready=false, online=false, signedIn=false, ref=null;
- document.documentElement.classList.add('ideco-locked');
- const validHash=x=>typeof x==='string'&&/^[a-f0-9]{64}$/i.test(x);
- const digest=async x=>{const a=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(x));return [...new Uint8Array(a)].map(n=>n.toString(16).padStart(2,'0')).join('');};
- function message(el,t,ok=false){el.textContent=t;el.style.color=ok?'#16804c':'#b71c1c';}
- function lock(t){signedIn=false;sessionStorage.removeItem(SESSION_KEY);gate.hidden=false;document.documentElement.classList.add('ideco-locked');pwd.value='';if(t)message(msg,t);if(ready)submit.disabled=false;}
- function enter(){signedIn=true;sessionStorage.setItem(SESSION_KEY,hash);gate.hidden=true;document.documentElement.classList.remove('ideco-locked');pwd.value='';}
- function setHash(h){if(!validHash(h))return;const changed=hash!==h;hash=h;localStorage.setItem(LOCAL_KEY,h);ready=true;submit.disabled=false;if(changed&&signedIn){lock('Mật khẩu đã được thay đổi. Vui lòng đăng nhập lại.');}else if(!signedIn){message(msg,online?'Sẵn sàng đăng nhập.':'Chế độ dự phòng: chưa kết nối được Firebase.',online);}}
- async function start(){
-  const cached=localStorage.getItem(LOCAL_KEY);if(validHash(cached))hash=cached;
-  try{
-   if(!window.crypto?.subtle)throw new Error('Trình duyệt không hỗ trợ xác minh mật khẩu an toàn (cần HTTPS).');
-   if(!window.firebase?.database)throw new Error('Firebase chưa sẵn sàng');
-   ref=firebase.database().ref(CONFIG_PATH);
-   const snap=await ref.once('value');
-   let h=snap.val();
-   if(!validHash(h)){
-     const result=await ref.transaction(v=>validHash(v)?undefined:DEFAULT_HASH,undefined,false);
-     h=result.snapshot.val();
-   }
-   if(!validHash(h))throw new Error('Cấu hình mật khẩu không hợp lệ');
-   online=true;setHash(h);
-   ref.on('value',snapshot=>{const v=snapshot.val();if(validHash(v))setHash(v);},e=>{online=false;message(msg,'Mất đồng bộ Firebase. Kiểm tra kết nối hoặc quyền Database.');console.warn('IDECO password sync:',e);});
-  }catch(e){console.warn('IDECO login fallback:',e);online=false;setHash(hash);message(msg,'Chế độ dự phòng trên thiết bị này: Firebase chưa đồng bộ được.');}
-  // Each new visit requires a login. Refresh within the tab keeps the session if desired.
-  if(sessionStorage.getItem(SESSION_KEY)===hash)enter();
- }
- form.addEventListener('submit',async e=>{e.preventDefault();if(!ready)return;submit.disabled=true;try{if(await digest(pwd.value)===hash){enter();}else{message(msg,'Mật khẩu không đúng. Vui lòng thử lại.');pwd.select();}}catch(err){message(msg,'Không thể xác minh mật khẩu trên trình duyệt này.');}finally{submit.disabled=false;}});
- changeForm.addEventListener('submit',async e=>{
-  e.preventDefault();if(!signedIn)return;
-  const old=document.getElementById('idecoOldPassword').value;
-  const next=document.getElementById('idecoNewPassword').value;
-  const confirm=document.getElementById('idecoConfirmPassword').value;
-  if(next.length<8){message(changeMsg,'Mật khẩu mới cần ít nhất 8 ký tự.');return;}
-  if(next!==confirm){message(changeMsg,'Xác nhận mật khẩu mới chưa khớp.');return;}
-  changeSubmit.disabled=true;
-  try{
-   const oldHash=await digest(old),nextHash=await digest(next);
-   if(oldHash!==hash){message(changeMsg,'Mật khẩu hiện tại không chính xác.');return;}
-   if(nextHash===hash){message(changeMsg,'Mật khẩu mới phải khác mật khẩu cũ.');return;}
-   if(online&&ref){
-    const tx=await ref.transaction(current=>current===oldHash?nextHash:undefined,undefined,false);
-    if(!tx.committed){message(changeMsg,'Mật khẩu đã được đổi trên thiết bị khác. Vui lòng tải lại.');return;}
-    setHash(nextHash);
-    message(changeMsg,'Đã lưu mật khẩu mới trên Firebase. Các thiết bị khác sẽ yêu cầu đăng nhập lại.',true);
-   }else{
-    message(changeMsg,'Không thể lưu mật khẩu chung vì Firebase chưa kết nối. Vui lòng kết nối mạng rồi thử lại.');return;
-   }
-   changeForm.reset();lock('Mật khẩu đã được đổi. Đăng nhập lại bằng mật khẩu mới.');
-  }catch(err){console.error('IDECO password change:',err);message(changeMsg,'Không lưu được mật khẩu trên Firebase. Kiểm tra quyền ghi Database và kết nối mạng.');}
-  finally{changeSubmit.disabled=false;}
- });
- document.getElementById('idecoLogoutBtn').addEventListener('click',()=>lock('Đã đăng xuất. Vui lòng đăng nhập lại.'));
- start();
+    'use strict';
+    const UA = navigator.userAgent || '';
+    const isIOS = /iPad|iPhone|iPod/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isTouch = isIOS || /Android/i.test(UA) || (navigator.maxTouchPoints > 0 && matchMedia('(pointer:coarse)').matches);
+
+    // Số VN: 0xxxxxxxxx / +84xxxxxxxxx / 84xxxxxxxxx, cho phép dấu cách, chấm, gạch
+    const PHONE_RE = /(?:\+?84|0)[\s.\-]?(?:[35789](?:[\s.\-]?\d){8}|2(?:[\s.\-]?\d){9})/g;
+    function normalize(raw) {
+        let d = String(raw || '').replace(/\D/g, '');
+        if (d.startsWith('84') && (d.length === 11 || d.length === 12)) d = '0' + d.slice(2);
+        return /^0(?:[35789]\d{8}|2\d{9})$/.test(d) ? d : '';
+    }
+    function pretty(d) { return d.length === 10 ? d.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3') : d.replace(/(\d{3})(\d{4})(\d{4})/, '$1 $2 $3'); }
+    // Tìm số điện thoại chứa vùng [start,end) trong chuỗi text (mở rộng khi chỉ chọn 1 phần)
+    function phoneAround(text, start, end) {
+        PHONE_RE.lastIndex = 0; let m;
+        while ((m = PHONE_RE.exec(text))) {
+            const s = m.index, e = s + m[0].length;
+            if (start < e && end > s) return normalize(m[0]);
+            if (start === end && start >= s && start <= e) return normalize(m[0]);
+        }
+        return '';
+    }
+
+    // ---------- Giao diện ----------
+    const css = document.createElement('style');
+    css.textContent = `
+    #idps-mask{position:fixed;inset:0;background:rgba(9,24,42,.45);z-index:2147483000;opacity:0;pointer-events:none;transition:opacity .2s}
+    #idps-mask.show{opacity:1;pointer-events:auto}
+    #idps-sheet{position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:min(100%,520px);max-height:88dvh;overflow:auto;
+        background:#f8fafc;border-radius:20px 20px 0 0;z-index:2147483001;box-shadow:0 -10px 40px rgba(0,0,0,.25);
+        transition:transform .25s cubic-bezier(.2,.8,.2,1);padding:10px 14px calc(14px + env(safe-area-inset-bottom));
+        font:15px/1.4 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#17263b;-webkit-user-select:none;user-select:none}
+    #idps-sheet.show{transform:translate(-50%,0)}
+    #idps-sheet .idps-grab{width:42px;height:5px;border-radius:3px;background:#cbd5e1;margin:0 auto 10px}
+    #idps-sheet .idps-head{text-align:center;margin-bottom:10px}
+    #idps-sheet .idps-num{font-size:22px;font-weight:800;letter-spacing:.5px}
+    #idps-sheet .idps-sub{font-size:13px;color:#64748b;margin-top:2px}
+    #idps-sheet .idps-note{background:#ecfdf5;color:#166534;border:1px solid #bbf7d0;border-radius:12px;padding:10px 12px;font-size:13.5px;margin:0 0 10px;text-align:left}
+    #idps-sheet .idps-note.warn{background:#fff7ed;color:#9a3412;border-color:#fed7aa}
+    #idps-sheet .idps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    #idps-sheet .idps-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:74px;padding:8px 4px;
+        background:#fff;border:1px solid #e2e8f0;border-radius:14px;color:#17263b;text-decoration:none;font-weight:700;font-size:12.5px;text-align:center;
+        cursor:pointer;-webkit-tap-highlight-color:transparent;font-family:inherit}
+    #idps-sheet .idps-btn:active{transform:scale(.97);background:#eef4ff}
+    #idps-sheet .idps-ic{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff}
+    #idps-sheet .idps-wide{grid-column:1/-1;flex-direction:row;min-height:52px;font-size:15px;gap:10px}
+    #idps-sheet .idps-wide.primary{background:#0068ff;border-color:#0068ff;color:#fff}
+    #idps-sheet .idps-close{display:block;width:100%;margin-top:10px;min-height:48px;border:0;border-radius:14px;background:#e2e8f0;color:#17263b;font:700 15px inherit;font-family:inherit;cursor:pointer}
+    #idps-toast{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,-20px);background:#1b2a4a;color:#fff;
+        padding:11px 16px;border-radius:12px;font:600 14px/1.4 -apple-system,system-ui,sans-serif;z-index:2147483002;opacity:0;pointer-events:none;
+        transition:all .25s;max-width:92vw;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+    #idps-toast.show{opacity:1;transform:translate(-50%,0)}
+    a.ideco-phone{cursor:pointer}
+    `;
+    document.head.appendChild(css);
+
+    const mask = document.createElement('div'); mask.id = 'idps-mask';
+    const sheet = document.createElement('div'); sheet.id = 'idps-sheet';
+    sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true');
+    const toastEl = document.createElement('div'); toastEl.id = 'idps-toast'; toastEl.setAttribute('role', 'status');
+    document.body.append(mask, sheet, toastEl);
+
+    let toastT = null;
+    function toast(html, ms) {
+        toastEl.innerHTML = html; toastEl.classList.add('show');
+        clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('show'), ms || 3500);
+    }
+    let lastClosed = { phone: '', at: 0 };
+    let current = null; // {phone, files}
+    function close() {
+        if (current) lastClosed = { phone: current.phone, at: Date.now() };
+        sheet.classList.remove('show'); mask.classList.remove('show'); current = null;
+    }
+    mask.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && current) close(); });
+
+    const ICON = (bg, emo) => `<span class="idps-ic" style="background:${bg}">${emo}</span>`;
+    function zaloUrl(p) { return 'https://zalo.me/' + p; }
+
+    /**
+     * Mở bảng thao tác cho 1 số điện thoại.
+     * opts.note  : HTML ghi chú phía trên (vd. "Đã copy ảnh báo giá")
+     * opts.warn  : ghi chú dạng cảnh báo
+     * opts.files : danh sách File ảnh → hiện nút "Chia sẻ ảnh vào Zalo"
+     * opts.chunks: danh sách {blob} → nút copy ảnh kế tiếp
+     */
+    function open(phone, opts = {}) {
+        phone = normalize(phone);
+        if (!phone) return;
+        current = { phone, files: opts.files || null, chunks: opts.chunks || null, idx: 0 };
+        const z = zaloUrl(phone);
+        const canShare = !!(opts.files && opts.files.length && navigator.share && navigator.canShare && navigator.canShare({ files: opts.files }));
+        const multi = opts.chunks && opts.chunks.length > 1;
+        sheet.innerHTML = `
+            <div class="idps-grab"></div>
+            <div class="idps-head"><div class="idps-num">${pretty(phone)}</div><div class="idps-sub">Chọn thao tác với số điện thoại</div></div>
+            ${opts.note ? `<div class="idps-note${opts.warn ? ' warn' : ''}">${opts.note}</div>` : ''}
+            <div class="idps-grid">
+                ${canShare ? `<button type="button" class="idps-btn idps-wide primary" data-act="share">📤 Chia sẻ ảnh báo giá vào Zalo</button>` : ''}
+                ${multi ? `<button type="button" class="idps-btn idps-wide" data-act="next">🖼️ <span>Copy ảnh 2/${opts.chunks.length}</span></button>` : ''}
+                <a class="idps-btn" data-act="zalo" href="${z}" target="_blank" rel="noopener">${ICON('#0068ff', '💬')}Gửi Zalo</a>
+                <a class="idps-btn" data-act="zcall" href="${z}" target="_blank" rel="noopener">${ICON('#00a2ff', '📞')}Gọi miễn phí</a>
+                <a class="idps-btn" data-act="friend" href="${z}" target="_blank" rel="noopener">${ICON('#7c3aed', '👤')}Kết bạn</a>
+                <a class="idps-btn" data-act="tel" href="tel:${phone}">${ICON('#16a34a', '📱')}Gọi SIM</a>
+                <a class="idps-btn" data-act="sms" href="sms:${phone}">${ICON('#f59e0b', '✉️')}Nhắn SMS</a>
+                <button type="button" class="idps-btn" data-act="copy">${ICON('#475569', '📋')}Sao chép</button>
+            </div>
+            <button type="button" class="idps-close" data-act="close">Đóng</button>`;
+        // Ẩn bàn phím / bỏ vùng chọn để sheet không bị che
+        try { if (document.activeElement && /^(TEXTAREA|INPUT)$/.test(document.activeElement.tagName)) document.activeElement.blur(); } catch (_) {}
+        mask.classList.add('show');
+        requestAnimationFrame(() => sheet.classList.add('show'));
+    }
+
+    async function copyText(t) {
+        try { await navigator.clipboard.writeText(t); return true; } catch (_) {}
+        const ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-1000px;opacity:0'; document.body.appendChild(ta);
+        ta.select(); ta.setSelectionRange(0, t.length);
+        let ok = false; try { ok = document.execCommand('copy'); } catch (_) {}
+        ta.remove(); return ok;
+    }
+
+    sheet.addEventListener('click', async e => {
+        const el = e.target.closest('[data-act]');
+        if (!el || !current) return;
+        const act = el.dataset.act, phone = current.phone;
+        switch (act) {
+            case 'close': close(); break;
+            case 'zalo': setTimeout(close, 300); break; // để thẻ <a> tự mở Zalo (giữ user-gesture)
+            case 'zcall': toast('📞 Zalo đang mở — bấm biểu tượng <b>gọi điện</b> ở góc trên khung chat để gọi miễn phí.', 6000); setTimeout(close, 300); break;
+            case 'friend': toast('👤 Zalo đang mở hồ sơ ' + pretty(phone) + ' — bấm <b>Kết bạn</b>.', 6000); setTimeout(close, 300); break;
+            case 'tel': case 'sms': setTimeout(close, 300); break;
+            case 'copy':
+                toast((await copyText(phone)) ? '✅ Đã sao chép ' + pretty(phone) : '❌ Không sao chép được, hãy nhấn giữ số để copy.');
+                close(); break;
+            case 'share':
+                try {
+                    await navigator.share({ files: current.files, title: 'Báo giá IDECO' });
+                    toast('✅ Đã mở chia sẻ — chọn Zalo rồi chọn khách ' + pretty(phone) + '.', 5000);
+                } catch (err) {
+                    if (err && err.name !== 'AbortError') toast('❌ Không chia sẻ được ảnh: ' + (err.message || err.name), 5000);
+                }
+                break;
+            case 'next': {
+                const c = current.chunks; if (!c) break;
+                current.idx = Math.min(c.length - 1, current.idx + 1);
+                try {
+                    await navigator.clipboard.write([new ClipboardItem({ 'image/png': c[current.idx].blob })]);
+                    const span = el.querySelector('span');
+                    if (current.idx + 1 < c.length) { span.textContent = `Copy ảnh ${current.idx + 2}/${c.length}`; }
+                    else { el.disabled = true; span.textContent = `Đã copy hết ${c.length} ảnh`; }
+                    toast(`✅ Đã copy ảnh ${current.idx + 1}/${c.length} — vào Zalo nhấn giữ ô chat → <b>Dán</b>.`, 5000);
+                } catch (err) { current.idx--; toast('❌ Không copy được ảnh tiếp theo, bấm lại nhé.', 4000); }
+                break;
+            }
+        }
+    });
+
+    // ---------- Tự hiện khi CHỌN số điện thoại (giống Android) — chỉ bật trên iOS ----------
+    function selectedPhone() {
+        const ae = document.activeElement;
+        if (ae && (ae.tagName === 'TEXTAREA' || (ae.tagName === 'INPUT' && /^(text|search|tel)$/i.test(ae.type || 'text')))) {
+            let s, e; try { s = ae.selectionStart; e = ae.selectionEnd; } catch (_) { return ''; }
+            if (s == null || s === e || e - s > 30) return '';
+            return phoneAround(ae.value, s, e);
+        }
+        const sel = window.getSelection && window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) return '';
+        const txt = sel.toString();
+        if (!txt || txt.length > 30) return '';
+        const direct = normalize(txt); if (direct) return direct;
+        // Chỉ chọn một phần số (vd. "0938 151 422" bị chọn mỗi "151") → mở rộng trong cùng nút văn bản
+        const r = sel.getRangeAt(0);
+        if (r.startContainer === r.endContainer && r.startContainer.nodeType === 3) {
+            return phoneAround(r.startContainer.textContent, r.startOffset, r.endOffset);
+        }
+        return '';
+    }
+    if (isIOS) {
+        let selT = null;
+        const check = () => {
+            clearTimeout(selT);
+            selT = setTimeout(() => {
+                if (current) return;
+                if (sheet.contains(document.activeElement)) return;
+                const p = selectedPhone();
+                if (!p) return;
+                if (p === lastClosed.phone && Date.now() - lastClosed.at < 2500) return;
+                open(p);
+            }, 650);
+        };
+        document.addEventListener('selectionchange', check);
+        document.addEventListener('touchend', check, { passive: true });
+        document.addEventListener('select', check, true); // textarea/input
+    }
+
+    // ---------- Chạm vào số đã gắn link (tel:, .ideco-phone, [data-ideco-phone]) ----------
+    document.addEventListener('click', e => {
+        const a = e.target.closest && e.target.closest('a[href^="tel:"], .ideco-phone, [data-ideco-phone]');
+        if (!a || sheet.contains(a)) return;
+        if (!isTouch) return; // máy tính: giữ hành vi cũ
+        const p = normalize(a.getAttribute('data-ideco-phone') || (a.getAttribute('href') || '').replace(/^tel:/, '') || a.textContent);
+        if (!p) return;
+        e.preventDefault(); e.stopPropagation();
+        open(p);
+    }, true);
+
+    // ---------- Gắn link cho số điện thoại tĩnh trong vùng báo giá & danh sách KH ----------
+    function linkify(root) {
+        if (!root) return;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(n) {
+                const p = n.parentElement;
+                if (!p || p.closest('a,button,script,style,textarea,input,select,#idps-sheet,.zc-send-btn')) return NodeFilter.FILTER_REJECT;
+                PHONE_RE.lastIndex = 0;
+                return PHONE_RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+        });
+        const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(n => {
+            const txt = n.nodeValue, frag = document.createDocumentFragment();
+            let last = 0, m; PHONE_RE.lastIndex = 0;
+            while ((m = PHONE_RE.exec(txt))) {
+                const d = normalize(m[0]); if (!d) continue;
+                frag.append(txt.slice(last, m.index));
+                const a = document.createElement('a');
+                a.className = 'ideco-phone'; a.href = 'tel:' + d; a.textContent = m[0];
+                a.style.cssText = 'color:inherit;text-decoration:none;';
+                frag.append(a); last = m.index + m[0].length;
+            }
+            if (last === 0) return;
+            frag.append(txt.slice(last)); n.replaceWith(frag);
+        });
+    }
+    if (isTouch) {
+        const roots = ['captureArea', 'zaloCustList'].map(id => document.getElementById(id)).filter(Boolean);
+        roots.forEach(r => {
+            linkify(r);
+            let t = null;
+            new MutationObserver(() => { clearTimeout(t); t = setTimeout(() => linkify(r), 300); }).observe(r, { childList: true, subtree: true });
+        });
+    }
+
+    // ---------- Hook cho nút "Gửi Zalo" trong panel GỬI BÁO GIÁ QUA ZALO ----------
+    function toFiles(chunks) {
+        return (chunks || []).map((c, i) => new File([c.blob], `BaoGia_IDECO_${Date.now()}_${i + 1}.png`, { type: 'image/png' }));
+    }
+    function afterQuoteCopied(phone, chunks) {
+        const n = (chunks || []).length;
+        open(phone, {
+            files: toFiles(chunks), chunks,
+            note: `✅ <b>Đã copy ảnh báo giá${n > 1 ? ` 1/${n}` : ''}.</b><br>` +
+                  `Cách 1: bấm <b>Chia sẻ ảnh báo giá vào Zalo</b> → chọn Zalo → chọn khách.<br>` +
+                  `Cách 2: bấm <b>Gửi Zalo</b> → trong khung chat nhấn giữ ô nhập → <b>Dán</b> → Gửi.`
+        });
+    }
+    async function afterQuoteFailed(phone, buildChunks) {
+        let chunks = null;
+        try { chunks = await buildChunks(); } catch (e) { console.error('[IDECOPhone] build chunks', e); }
+        open(phone, {
+            files: chunks ? toFiles(chunks) : null, chunks: null, warn: true,
+            note: chunks
+                ? '⚠️ iPhone chưa cho copy ảnh tự động. Bấm <b>Chia sẻ ảnh báo giá vào Zalo</b> để gửi trực tiếp ảnh cho khách.'
+                : '⚠️ Không tạo được ảnh báo giá. Anh vẫn có thể mở Zalo/gọi khách bằng các nút bên dưới.'
+        });
+    }
+
+    window.IDECOPhone = { isIOS, isTouch, open, close, normalize, linkify, afterQuoteCopied, afterQuoteFailed };
 })();
 </script>
+
 </body>
 </html>
